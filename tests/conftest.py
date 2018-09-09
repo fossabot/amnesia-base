@@ -98,3 +98,18 @@ def article(db, admin_user, corpus):
     db.session.add(article)
     db.session.commit()
     return article
+
+
+@pytest.fixture
+def annotation(db, admin_user, article):
+    annotation = Annotation(
+        article_id=article.id,
+        author_id=admin_user.id,
+        span_start=0,
+        span_finish=7,
+        type=0,
+        tag=0,
+    )
+    db.session.add(annotation)
+    db.session.commit()
+    return annotation

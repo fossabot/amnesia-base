@@ -10,6 +10,8 @@ from amnesia.api.resources import (
 
     ArticleResource,
     ArticleList,
+
+    AnnotationList,
 )
 
 
@@ -25,3 +27,6 @@ api.add_resource(CorpusList, '/corpus')
 
 api.add_resource(ArticleResource, '/corpus/<int:corpus_id>/articles/<int:article_id>')
 api.add_resource(ArticleList, '/corpus/<int:corpus_id>/articles')
+
+
+api.add_resource(AnnotationList, '/corpus/<int:corpus_id>/articles/<int:article_id>/annotations')

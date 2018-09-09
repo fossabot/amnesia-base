@@ -33,14 +33,14 @@ class UserResource(Resource):
         if errors:
             return errors, 422
 
-        return {'msg': 'user updated', 'user': schema.dump(user).data}
+        return {'message': 'user updated', 'user': schema.dump(user).data}
 
     def delete(self, user_id):
         user = User.query.get_or_404(user_id)
         db.session.delete(user)
         db.session.commit()
 
-        return {'msg': 'user deleted'}
+        return {'message': 'user deleted'}
 
 
 class UserList(Resource):
@@ -62,4 +62,4 @@ class UserList(Resource):
         db.session.add(user)
         db.session.commit()
 
-        return {'msg': 'user created', 'user': schema.dump(user).data}, 201
+        return {'message': 'user created', 'user': schema.dump(user).data}, 201

@@ -1,6 +1,7 @@
 from .user import UserResource, UserList
 from .corpus import CorpusResource, CorpusList
 from .article import ArticleResource, ArticleList
+from .annotation import AnnotationList
 
 
 __all__ = [
@@ -12,4 +13,6 @@ __all__ = [
 
     'ArticleResource',
     'ArticleList',
+
+    'AnnotationList',
 ]

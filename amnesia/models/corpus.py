@@ -36,10 +36,11 @@ class Annotation(db.Model):
     span_finish = db.Column(db.Integer, nullable=False)
 
     tag = db.Column(db.Integer, nullable=False)
+    type = db.Column(db.Integer, nullable=False)
 
     created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now, nullable=False)
 
     __table_args__ = (
-        db.UniqueConstraint(article_id, author_id, span_start, span_finish, tag),
+        db.UniqueConstraint(article_id, author_id, span_start, span_finish, type, tag),
     )
