@@ -1,9 +1,9 @@
 import json
 import pytest
 
-from amnesia.models import User
 from amnesia.app import create_app
 from amnesia.extensions import db as _db
+from amnesia.models import User, Corpus, Article, Annotation
 
 
 @pytest.fixture
@@ -75,3 +75,14 @@ def admin_refresh_headers(admin_user, client):
         'content-type': 'application/json',
         'authorization': 'Bearer %s' % tokens['refresh_token']
     }
+
+@pytest.fixture
+def corpus(admin_user, db):
+    corpus = Corpus(
+        title='Example corpus title',
+        description='Example corpus description',
+        author_id=admin_user.id,
+    )
+    db.session.add(corpus)
+    db.session.commit()
+    return corpus

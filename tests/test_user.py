@@ -105,7 +105,7 @@ def test_create_user(client, db, admin_headers):
 
 
 def test_get_all_user(client, db, user_factory, admin_headers):
-    users = user_factory.create_batch(30)
+    users = user_factory.create_batch(5)
 
     db.session.add_all(users)
     db.session.commit()

@@ -40,14 +40,14 @@ class CorpusResource(Resource):
         if errors:
             return errors, 422
 
-        return {'msg': 'corpus updated', 'corpus': schema.dump(corpus).data}
+        return {'message': 'corpus updated', 'corpus': schema.dump(corpus).data}
 
     def delete(self, corpus_id):
         corpus = Corpus.query.get_or_404(corpus_id)
         db.session.delete(corpus)
         db.session.commit()
 
-        return {'msg': 'corpus deleted'}
+        return {'message': 'corpus deleted'}
 
 
 class CorpusList(Resource):
@@ -69,6 +69,6 @@ class CorpusList(Resource):
         db.session.add(corpus)
         db.session.commit()
         return {
-            'msg': 'corpus created',
-            'item': schema.dump(corpus).data,
+            'message': 'corpus created',
+            'corpus': schema.dump(corpus).data,
         }
