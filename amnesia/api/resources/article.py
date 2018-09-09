@@ -45,7 +45,7 @@ class ArticleResource(Resource):
         if errors:
             return errors, 422
 
-        return {'msg': 'article updated', 'article': schema.dump(article).data}
+        return {'message': 'article updated', 'article': schema.dump(article).data}
 
     def delete(self, corpus_id: int, article_id: int):
         article = Article.query.filter(
@@ -57,7 +57,7 @@ class ArticleResource(Resource):
         db.session.delete(article)
         db.session.commit()
 
-        return {'msg': 'article deleted'}
+        return {'message': 'article deleted'}
 
 
 class ArticleList(Resource):
@@ -81,6 +81,6 @@ class ArticleList(Resource):
         db.session.add(article)
         db.session.commit()
         return {
-            'msg': 'article created',
-            'item': schema.dump(article).data,
+            'message': 'article created',
+            'article': schema.dump(article).data,
         }

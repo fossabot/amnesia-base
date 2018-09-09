@@ -77,7 +77,7 @@ def admin_refresh_headers(admin_user, client):
     }
 
 @pytest.fixture
-def corpus(admin_user, db):
+def corpus(db, admin_user):
     corpus = Corpus(
         title='Example corpus title',
         description='Example corpus description',
@@ -86,3 +86,15 @@ def corpus(admin_user, db):
     db.session.add(corpus)
     db.session.commit()
     return corpus
+
+
+@pytest.fixture
+def article(db, admin_user, corpus):
+    article = Article(
+        content='Example content',
+        corpus_id=corpus.id,
+        author_id=admin_user.id,
+    )
+    db.session.add(article)
+    db.session.commit()
+    return article

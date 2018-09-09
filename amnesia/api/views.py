@@ -23,5 +23,5 @@ api.add_resource(UserList, '/users')
 api.add_resource(CorpusResource, '/corpus/<int:corpus_id>')
 api.add_resource(CorpusList, '/corpus')
 
-api.add_resource(ArticleResource, '/corpus/<int:corpus_id>/articles/<int:atricle_id>')
+api.add_resource(ArticleResource, '/corpus/<int:corpus_id>/articles/<int:article_id>')
 api.add_resource(ArticleList, '/corpus/<int:corpus_id>/articles')

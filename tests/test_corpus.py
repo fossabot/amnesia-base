@@ -35,3 +35,7 @@ def test_update_corpus(client, corpus, admin_headers):
 
     assert results['corpus']['title'] != corpus.title
     assert results['corpus']['description'] == corpus.description
+
+def test_delete_corpus(client, corpus, admin_headers):
+    response = client.delete(f'/api/v1/corpus/{corpus.id}', headers=admin_headers)
+    assert response.status_code == 200
