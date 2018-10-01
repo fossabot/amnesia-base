@@ -3,12 +3,12 @@ Flask-RESTful == 0.3.6
 Flask-Migrate == 2.2.1
 Flask-SQLAlchemy == 2.3.2
 flask-marshmallow == 0.9.0
-Flask-JWT-Extended==3.13.0
+Flask-JWT-Extended==3.13.1
 marshmallow-sqlalchemy == 0.14.1
 python-dotenv == 0.9.1
 passlib == 1.7.1
 
 pytest==3.8.1
 pytest-factoryboy == 2.0.1
-pytest-flask == 0.12.0
+pytest-flask==0.13.0
 pytest-runner == 4.2
